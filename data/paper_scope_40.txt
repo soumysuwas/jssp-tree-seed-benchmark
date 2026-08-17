@@ -1,0 +1,43 @@
+# Paper comparison scope: the 40 Taillard instances in Sahman (2022) Table 5.
+# Derived programmatically from the keys of src/atsa_jssp/paper_table5.py (do not hand-edit).
+# Every ATSA-vs-paper aggregate in this repository is computed over exactly these instances.
+ta01
+ta02
+ta03
+ta04
+ta05
+ta11
+ta12
+ta13
+ta14
+ta15
+ta21
+ta22
+ta23
+ta24
+ta25
+ta31
+ta32
+ta33
+ta34
+ta35
+ta41
+ta42
+ta43
+ta44
+ta45
+ta51
+ta52
+ta53
+ta54
+ta55
+ta61
+ta62
+ta63
+ta64
+ta65
+ta71
+ta72
+ta73
+ta74
+ta75
