@@ -152,17 +152,17 @@ Times scale with instance size; ta71–ta80 (D=2000) dominate.
 | ATSA, one instance | `uv run python -m atsa_jssp.cli run --instance ta01 --runs 20` | 20 seeded runs | `results/atsa_ta01.csv` (scratch, top-level) |
 | ATSA, 40 paper instances | `uv run python -m atsa_jssp.cli run --all --runs 20 --jobs 8` | the paper set (ta71–75 last) | `results/atsa_full.csv` (scratch, top-level) |
 | ATSA, ta02–ta80 campaign | `uv run python run_atsa_campaign.py --jobs 8` | broad coverage, 79 instances (tens of minutes) | `results/atsa/atsa_ta*.csv`, `results/atsa/atsa_ta02_ta80.csv` |
+| DTSA job-shop (C1 / C3) | `uv run python -u dtsa/run_jssp.py --jobs 8` / `run_jssp_c3.py` | DTSA-core runs | `results/dtsa/dtsa_jssp*.csv` |
+| DTSA summary table | `uv run python dtsa/make_dtsa_table5.py` | per-instance summary | `results/dtsa/dtsa_table5.csv` |
+| TSP validation gate | `uv run python dtsa/validation_tsp/run_gate1.py --jobs 8` | the gate that did **not** pass (see `results/gate1/README.md`) | `results/gate1/gate1.csv` |
+| Headline numbers | `uv run python scripts/compute_headline.py` | prints the §2 ATSA numbers | — |
+| DTSA numbers | `uv run python dtsa/metrics.py` | prints the §2 DTSA numbers | — |
 
 > **Where files land.** The `cli run` command writes to the top level of `results/` by default
 > (e.g. `results/atsa_ta01.csv`). That location is **scratch** — it is gitignored (`/results/*.csv`)
 > so your runs never overwrite the committed data, which lives one level down in `results/atsa/`.
 > To write a file directly comparable to a committed one, pass `--out`, e.g.
 > `--out results/atsa/atsa_ta01.csv`. Only `run_atsa_campaign.py` writes into `results/atsa/` itself.
-| DTSA job-shop (C1 / C3) | `uv run python -u dtsa/run_jssp.py --jobs 8` / `run_jssp_c3.py` | DTSA-core runs | `results/dtsa/dtsa_jssp*.csv` |
-| DTSA summary table | `uv run python dtsa/make_dtsa_table5.py` | per-instance summary | `results/dtsa/dtsa_table5.csv` |
-| TSP validation gate | `uv run python dtsa/validation_tsp/run_gate1.py --jobs 8` | the gate that did **not** pass (see `results/gate1/README.md`) | `results/gate1/gate1.csv` |
-| Headline numbers | `uv run python scripts/compute_headline.py` | prints the §2 ATSA numbers | — |
-| DTSA numbers | `uv run python dtsa/metrics.py` | prints the §2 DTSA numbers | — |
 
 Ablation and timing drivers are listed in `reports/DTSA_report.md` §7 and in the per-folder READMEs
 under `results/`.
